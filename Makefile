@@ -7,10 +7,15 @@ TARGETS = \
 HEADERS = \
 			util.h
 
+LIBS    = \
+			-lmastik
+
+
 all:		$(TARGETS)
 
 pp:			pp.c
-				$(GCC) $(GCCFLAGS) -o $@ $^
+				$(GCC) $(GCCFLAGS) -o $@ $^ $(LIBS)
+
 
 clean:
 		rm -f $(TARGETS) *.o
