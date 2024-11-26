@@ -25,21 +25,14 @@
 #include <mastik/fr.h>
 #include <mastik/util.h>
 
-#define SAMPLES 100000
-#define SLOT	1000
+#define SAMPLES 1000000
+#define SLOT	2000
 #define THRESHOLD 100
 
 char *monitor[] = {
-  "mpih-mul.c:347", /* Multiplication, mpihelp_mul_n */
-  "mpih-mul.c:269", /* Square, mpih_sqr_n */
-  "mpih-div.c:208"  /* Modulo, mpihelp_divrem */
-};
-
-uint64_t off[] =
-{
-  0x9fa10, /* Mul */
-  0x9f630, /* Sqr */
-  0x9e450  /* Mod */
+  "mpih-mul.c:488", /* Multiplication, mpihelp_mul */
+  "mpih-mul.c:236", /* Square, mpih_sqr_n_basecase */
+  "mpih-div.c:214"  /* Modulo, mpihelp_divrem */
 };
 
 int nmonitor = sizeof(monitor)/sizeof(monitor[0]);
@@ -62,7 +55,7 @@ int main(int ac, char **av) {
       fprintf(stderr, "Cannot find %s in %s\n", monitor[i], binary);
       exit(1);
     } 
-    fr_monitor(fr, map_offset(binary, off[i]));
+    fr_monitor(fr, map_offset(binary, offset));
   }
 
   uint16_t *res = malloc(SAMPLES * nmonitor * sizeof(uint16_t));
@@ -70,7 +63,7 @@ int main(int ac, char **av) {
     res[i] = 1;
   fr_probe(fr, res);
 
-  int l = fr_trace(fr, SAMPLES, res, SLOT, THRESHOLD, 500);
+  int l = fr_trace(fr, SAMPLES, res, SLOT, THRESHOLD, 1000);
   for (int i = 0; i < l; i++) {
     for (int j = 0; j < nmonitor; j++)
       printf("%d ", res[i * nmonitor + j]);

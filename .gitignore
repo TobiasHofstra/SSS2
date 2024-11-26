@@ -6,5 +6,8 @@ msg.txt.*
 *.png
 out.*
 
+!full.png
+!zoomed.png
+
 fr
 pp
