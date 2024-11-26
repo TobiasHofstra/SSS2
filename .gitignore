@@ -1,3 +1,10 @@
 .vscode
 
+gpg-1.4.13
+mpi*
+msg.txt.*
+*.png
+out.*
+
+fr
 pp

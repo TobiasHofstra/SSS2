@@ -9,7 +9,9 @@ HEADERS = \
 			util.h
 
 LIBS    = \
-			-lmastik
+			-lmastik \
+			-ldwarf  \
+			-lbfd
 
 help:
 	@echo "Use":
@@ -28,6 +30,9 @@ all:		$(TARGETS)
 
 pp:			pp.c
 				$(GCC) $(GCCFLAGS) -o $@ $^ $(LIBS) -lcrypto
+
+fr:			fr.c
+				$(GCC) $(GCCFLAGS) -o $@ $^ $(LIBS)
 
 clean:
 		rm -f $(TARGETS) *.o

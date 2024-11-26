@@ -1,0 +1,10 @@
+# gnuplot script
+
+set xrange [0:1500]
+set yrange [0:250]
+
+set output "plot.png"
+
+plot "out.txt" using (column(0)):1 title 'mul', \
+     "out.txt" using (column(0)):2 title 'sqr', \
+     "out.txt" using (column(0)):3 title 'mod'
