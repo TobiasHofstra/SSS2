@@ -3,7 +3,9 @@ GCCFLAGS = -O3 -g
 
 
 TARGETS = \
-			pp
+			pp \
+			fr \
+			ff
 
 HEADERS = \
 			util.h
@@ -32,6 +34,9 @@ pp:			pp.c
 				$(GCC) $(GCCFLAGS) -o $@ $^ $(LIBS) -lcrypto
 
 fr:			fr.c
+				$(GCC) $(GCCFLAGS) -o $@ $^ $(LIBS)
+
+ff:			ff.c
 				$(GCC) $(GCCFLAGS) -o $@ $^ $(LIBS)
 
 clean:
