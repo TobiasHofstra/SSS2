@@ -1,6 +1,6 @@
 # gnuplot script
 
-set xrange [0:5000]
+set xrange [0:2500]
 set yrange [0:250]
 
 plot "out.txt" using (column(0)):1 title 'mul', \

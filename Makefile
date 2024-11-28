@@ -3,9 +3,10 @@ GCCFLAGS = -O3 -g
 
 
 TARGETS = \
-			pp \
-			fr \
-			ff
+			pp  \
+			fr  \
+			ff  \
+			pda 
 
 HEADERS = \
 			util.h
@@ -37,6 +38,9 @@ fr:			fr.c
 				$(GCC) $(GCCFLAGS) -o $@ $^ $(LIBS)
 
 ff:			ff.c
+				$(GCC) $(GCCFLAGS) -o $@ $^ $(LIBS)
+
+pda:		pda.c
 				$(GCC) $(GCCFLAGS) -o $@ $^ $(LIBS)
 
 clean:
