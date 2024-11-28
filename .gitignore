@@ -6,10 +6,10 @@ msg.txt.*
 *.png
 out.*
 
-!full.png
-!zoomed.png
-!idle.png
-!gtk.png
+!fr_full.png
+!fr_zoomed.png
+!ff_idle.png
+!ff_gtk.png
 !pda_full.png
 !pda_zoomed.png
 
