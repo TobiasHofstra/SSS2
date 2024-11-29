@@ -1,7 +1,6 @@
 .vscode
 
-gpg-1.4.13
-mpi*
+
 msg.txt.*
 *.png
 out.*
@@ -13,7 +12,8 @@ out.*
 !pda_full.png
 !pda_zoomed.png
 
+pp
 fr
 ff
-pp
 pda
+cb
